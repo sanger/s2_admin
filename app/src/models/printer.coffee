@@ -8,12 +8,6 @@ define [
     baseUrl: () ->
       return super() + '/' + this.id
 
-    onSuccessPrinting: () ->
-      return ""
-
-    onErrorPrinting: () ->
-      return ""
-
     print: (labware) ->
       post_data = {
         label_printer: {
@@ -29,12 +23,11 @@ define [
       }
 
       $.ajax this.baseUrl(),
-        type: 'post'
+        type: 'POST'
         contentType: 'application/json; charset=UTF-8'
         dataType: 'json'
         data: JSON.stringify post_data
         headers: { "user-email": "TEST_USER_1" }
-        context: this
         complete: (xhr, status) ->
           S2.App.info "Label sent to the printer"
           return ""

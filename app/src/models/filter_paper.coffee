@@ -13,6 +13,6 @@ define [
       @baseUrl() + "/filter_papers"
 
     getAliquots: () ->
-      this.get("aliquots")
+      @get("aliquots")
 
     printerType: "tube"
