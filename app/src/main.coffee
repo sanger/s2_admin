@@ -14,7 +14,7 @@ require [
   'router'
 ], (Backbone, $, Ajax, AppController, Printers, AppView, SearchView, Router) ->
 
-  Backbone.ajax = Ajax;
+  Backbone.ajax = Ajax
 
   appView = new AppView;
   searchView = new SearchView({ el: $("#search") })
@@ -29,4 +29,3 @@ require [
       Backbone.history.start();
     )    
   )
-
