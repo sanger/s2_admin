@@ -19,6 +19,7 @@ define [
       this
 
     printLabel: () ->
+      event.preventDefault()      
       printer = S2.Printers.findWhere({ name: @_selectedPrinter()})
       printer.print(@_labware)
 

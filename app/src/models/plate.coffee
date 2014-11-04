@@ -23,6 +23,9 @@ define [
 
       this.wells = new Wells wells
 
+    getAliquots: () ->
+      _.chain(this.get('wells')).pairs().first().value()[1]
+
     urlRoot: () ->
       @baseUrl() + "/plates"
 

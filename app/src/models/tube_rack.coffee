@@ -8,6 +8,9 @@ define [
     urlRoot: () ->
       @baseUrl() + "/tube_racks"
 
+    getAliquots: () ->
+      _.chain(this.get('tubes')).pairs().first().value()[1].aliquots
+
     initialize: (attributes) ->
       super arguments...
 

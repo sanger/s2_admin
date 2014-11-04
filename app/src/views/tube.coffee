@@ -17,11 +17,12 @@ define [
     aliquotTableRowTemplate: _.template WellTableRowPartial
 
     render: () ->
-
       super()
-
       aliquot = @model.aliquots.find (aliquot) ->
         aliquot.has "sample"
+
+      if _.isUndefined aliquot
+        return this
 
       oldClass = $(".aliquot", @_svg).attr "class"
       newClass = aliquot.get("type").replace(/[^\w-]+/g, '_').toLowerCase()
