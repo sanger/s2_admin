@@ -18,7 +18,8 @@ define [
       @$el.html @template({ printers: @validPrinters })
       this
 
-    printLabel: (e) ->
+    printLabel: () ->
+      event.preventDefault()      
       printer = S2.Printers.findWhere({ name: @_selectedPrinter()})
       printer.print(@_labware)
 

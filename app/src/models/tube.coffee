@@ -15,6 +15,9 @@ define [
     parse: (response, options) ->
       attr = response.tube
 
+    getAliquots: () ->
+      this.get('aliquots')
+
     getSample: () ->
       if @aliquots?
         @aliquots.getSample()

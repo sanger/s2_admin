@@ -3,21 +3,29 @@ define [
   "models/plate",
   "models/tube_rack",
   "models/filter_paper",
+  "models/gel",
+  "models/spin_column",
 
   "views/tube",
   "views/plate",
   "views/tube_rack",
-  "views/filter_paper"
+  "views/filter_paper",
+  "views/spin_column",
+  "views/gel"
 ], (
   TubeModel,
   PlateModel,
   TubeRackModel,
   FilterPaperModel,
+  GelModel,
+  SpinColumnModel,
   
   TubeView,
   PlateView,
   TubeRackView,
-  FilterPaperView
+  FilterPaperView,
+  SpinColumnView
+  GelView
 ) ->
 
   labware =
@@ -33,6 +41,12 @@ define [
     filter_paper:
       model: FilterPaperModel
       view: FilterPaperView
+    spin_column:
+      model: SpinColumnModel
+      view: SpinColumnView
+    gel:
+      model: GelModel
+      view: GelView
 
   (name) ->
 
