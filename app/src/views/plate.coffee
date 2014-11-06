@@ -14,7 +14,6 @@ define [
     render: () ->
 
       super()
-
       @model.wells.each (well) =>
         slotLike = new SlotLikeView
           model: well,

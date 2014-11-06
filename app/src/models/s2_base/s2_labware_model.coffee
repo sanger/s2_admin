@@ -15,5 +15,19 @@ define [
       search = new Search
       search.orderByUUID(this)
 
+    labelRole: () ->
+      aliquots = this.getAliquots()
+      if (aliquots.length == 0)
+        return ""
+      return aliquots[0].type
+
     labelTemplate: () ->
-      debugger
+      template = { template: this.printerType, label_text: { role: this.labelRole() } }
+      labelInfo = {}
+      labels = this.get("labels")
+      unless _.isUndefined labels["barcode"]
+        labelInfo["ean13"] = labels["barcode"].value
+      unless _.isUndefined labels["sanger label"]
+        labelInfo["sanger"] = labels["sanger label"].value
+      template[this.printerType] = labelInfo
+      return template

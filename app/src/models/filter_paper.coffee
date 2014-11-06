@@ -11,3 +11,8 @@ define [
 
     urlRoot: () ->
       @baseUrl() + "/filter_papers"
+
+    getAliquots: () ->
+      @get("aliquots")
+
+    printerType: "tube"
