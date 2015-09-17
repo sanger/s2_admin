@@ -12,7 +12,10 @@ define [
       @baseUrl() + "/tube_racks"
 
     getAliquots: () ->
-      _.chain(this.get('tubes')).pairs().first().value()[1].aliquots
+      val = _.chain(this.get('tubes')).pairs().first().value()
+      if !(val?)
+        return []
+      return val[1].aliquots
 
     initialize: (attributes) ->
       super arguments...
